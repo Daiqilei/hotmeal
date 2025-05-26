@@ -1,0 +1,47 @@
+version: '3.9'
+
+services:
+  backend:
+    build: .
+    container_name: flask-backend
+    ports:
+      - "5000:5000"
+    environment:
+      FLASK_ENV: development
+      FLASK_DEBUG: 1
+      DB_USER: root
+      DB_PASSWORD: rootpassword
+      DB_HOST: db
+      DB_PORT: 3306
+      DB_NAME: hotmeal
+      SECRET_KEY: super-secret-key
+      JWT_SECRET_KEY: super-jwt-key
+      DB_POOL_SIZE: 5
+      DB_POOL_TIMEOUT: 30
+      DB_POOL_RECYCLE: 1800
+      LOG_LEVEL: DEBUG
+      LOG_FILE: /app/logs/app.log
+      LOG_MAX_BYTES: 100000
+      LOG_BACKUP_COUNT: 3
+      CACHE_TYPE: null
+    depends_on:
+      - db
+    volumes:
+      - .:/app
+
+  db:
+    image: mysql:8.0
+    container_name: mysql-db
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_DATABASE: hotmeal
+      MYSQL_USER: root
+      MYSQL_PASSWORD: rootpassword
+    ports:
+      - "3306:3306"
+    volumes:
+      - db_data:/var/lib/mysql
+
+volumes:
+  db_data:

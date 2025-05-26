@@ -1,0 +1,63 @@
+# -*- coding: utf-8 -*-
+#@File       : requirements.txt
+#@Author     : ChiLei Tai（Computer Science,JOU）
+#@Date       : 2025-03-30
+#@Desc       : requirements file for the project
+#@Project    : Ordering System - Personalized Ordering Platform Based on Recommendation Algorithm
+#@Version    : 1.0.0
+#@Copyright  : Copyright © 2025. All rights reserved.
+
+# ==========================
+# Web Framework
+# ==========================
+Flask==3.1.0
+flask-restx~=1.3.0
+flask-cors~=6.0.0
+Flask-JWT-Extended~=4.7.1
+
+# ==========================
+# Data Validation & Serialization
+# ==========================
+
+# ==========================
+# Database & ORM
+# ==========================
+SQLAlchemy==2.0.39
+
+# ==========================
+# Testing & Code Quality
+# ==========================
+pytest==8.3.5
+
+# ==========================
+# Utilities & Environment
+# ==========================
+python-dotenv==1.0.1
+numpy==2.2.4
+openai==1.68.2
+
+# ==========================
+# Security & Cryptography
+# ==========================
+
+# ==========================
+# Configuration, Packaging & Others
+# ==========================
+Werkzeug~=3.1.3
+
+# ==========================
+# HTTP & Networking
+# ==========================
+
+# ==========================
+# Date & Time
+# ==========================
+
+# ==========================
+# JSON & Serialization
+# ==========================
+
+# ==========================
+# Miscellaneous Dependencies
+# ==========================
+Flask-Migrate~=4.1.0

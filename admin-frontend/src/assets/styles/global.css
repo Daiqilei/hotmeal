@@ -1,0 +1,99 @@
+/* 全局样式 */
+/* src/assets/styles/global.css */
+
+/* 设置根元素字体大小，用于rem计算 */
+:root {
+  font-size: 16px;
+}
+
+/* 响应式字体大小 */
+@media screen and (max-width: 768px) {
+  :root {
+    font-size: 14px;
+  }
+}
+
+/* 响应式字体大小 */
+@media screen and (max-width: 480px) {
+  :root {
+    font-size: 12px;
+  }
+}
+
+/* 基础样式重置 */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+/* 根容器铺满视口 */
+html, body, #app {
+  height: 100%;
+  width: 100%;
+}
+
+/* 全局字体及基础配置 */
+body {
+  font-family: 'Maple Mono', monospace;
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
+/* 移动端适配 */
+@media screen and (max-width: 768px) {
+  body {
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+}
+
+/* 字体 */
+@font-face {
+  font-family: 'Maple Mono';
+  src: url('@/assets/fonts/MapleMono.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* ===========================
+   🌙 深色模式支持——beta
+   =========================== */
+:root {
+  --bg-color: #ffffff;
+  --text-color: #000000;
+  --primary-color: #409EFF;
+  --border-color: #e0e0e0;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-color: #1e1e1e;
+    --text-color: #f5f5f5;
+    --primary-color: #66b1ff;
+    --border-color: #333333;
+  }
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
+/* ===========================
+   🔧 自定义滚动条美化——beta
+   =========================== */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgba(144, 147, 153, 0.5);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: transparent;
+}
