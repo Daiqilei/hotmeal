@@ -19,3 +19,16 @@ dist
 *.njsproj
 *.sln
 *.sw?
+
+# Vite 构建缓存
+.vite
+
+# VSCode 配置目录（如使用）
+.vscode/
+
+# TypeScript 构建缓存
+*.tsbuildinfo
+
+# 环境变量文件（安全考虑）
+.env
+.env.*

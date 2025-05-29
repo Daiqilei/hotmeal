@@ -3,10 +3,7 @@
 @File       : chat_routes.py
 @Date       : 2025-03-01 (Refactored: 2025-03-01)
 @Desc       : 聊天相关的 API 端点。
-
-
 """
-
 import logging
 from http import HTTPStatus
 from typing import cast  # <--- 导入 cast

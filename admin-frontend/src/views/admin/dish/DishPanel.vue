@@ -21,7 +21,7 @@
     <template #toolbar="{ selected }">
       <el-button type="success" @click="handleAdd">新增菜品</el-button>
       <el-button :disabled="!selected.length" type="danger" @click="handleDelete(selected)"
-        >删除
+      >删除
       </el-button>
     </template>
 
@@ -35,7 +35,7 @@
       <el-table-column label="创建时间" prop="created_at" />
       <el-table-column label="操作" width="120">
         <template #default="{ row }">
-          <el-button type="primary" size="small" @click="handleEdit(row)">编辑</el-button>
+          <el-button size="small" type="primary" @click="handleEdit(row)">编辑</el-button>
         </template>
       </el-table-column>
     </template>
@@ -63,7 +63,7 @@
         <el-input-number v-model="form.stock" :min="0" />
       </el-form-item>
       <el-form-item label="标签">
-        <el-select v-model="form.tagNames" multiple filterable placeholder="请选择标签">
+        <el-select v-model="form.tagNames" filterable multiple placeholder="请选择标签">
           <el-option v-for="tag in allTags" :key="tag.tag_id" :label="tag.name" :value="tag.name" />
         </el-select>
       </el-form-item>
@@ -82,7 +82,7 @@
   import ContentPanel from '@/components/common/ContentPanel.vue'
   import { createDish, deleteDish, getDishList, updateDish } from '@/api/dish'
   import { getCategoryList } from '@/api/category'
-  import { getAllTags } from '@/api/tag'
+  import { getTagList } from '@/api/tag'
 
   // console.log('[DishPanel] mounted')
 
@@ -93,7 +93,7 @@
     categoryId: null,
     price: 0,
     stock: 0,
-    tagNames: [],
+    tagNames: []
     // imageUrl: '',
   })
   const categoryOptions = ref([])
@@ -115,7 +115,7 @@
             }
             return {
               id: cat.category_id,
-              name: cat.name,
+              name: cat.name
             }
           })
           .filter(Boolean)
@@ -125,8 +125,9 @@
       console.error('加载分类失败', err)
     }
     try {
-      const res = await getAllTags()
-      allTags.value = res.data || []
+      const res = await getTagList()
+      const raw = res.data
+      allTags.value = Array.isArray(raw) ? raw : (raw.list || raw.data || [])
     } catch (err) {
       console.error('[DishPanel] 加载标签失败', err)
     }
@@ -138,9 +139,13 @@
     console.log('[DishPanel] getDishList response:', res)
     // 兼容 mocks 的 data 数组 和 后端返回的 list 字段
     const dataArr = res.data.data || res.data.list || []
+    dataArr.sort((a, b) => a.dish_id - b.dish_id)
+    dataArr.forEach(item => {
+      item._sortKey = item.dish_id
+    })
     return {
       list: dataArr,
-      total: res.data.total ?? dataArr.length,
+      total: res.data.total ?? dataArr.length
     }
   }
 
@@ -180,7 +185,7 @@
         tag_names: form.tagNames,
         image_url: '',
         description: '',
-        is_available: true,
+        is_available: true
       }
       if (isEdit) {
         await updateDish(form.dishId, payload)

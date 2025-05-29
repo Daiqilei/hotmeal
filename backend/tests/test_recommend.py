@@ -117,7 +117,6 @@ def test_recommend_route_popular(user_token, client, mock_recommend_dishes):
     # data = response.json
     # assert data["status"] == "success"
     # assert isinstance(data["data"], list)
-
 def test_recommend_route_item_cf(client, mock_user_with_orders):
     """
     测试接口：/api/v1/recommend?strategy=item_cf

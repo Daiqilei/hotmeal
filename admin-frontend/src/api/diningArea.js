@@ -22,7 +22,7 @@ export const getDiningAreaDetail = (id) => {
 
 // 获取餐区列表
 export const getDiningAreaList = (params = {}) => {
-  return request.get('/dining-areas', { params })
+  return request.get('/dining-areas/', { params })
 }
 
 // 修改餐区

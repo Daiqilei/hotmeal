@@ -22,6 +22,7 @@ class RecommendationService:
     """
     管理和统一不同推荐策略的服务。
     """
+
     def __init__(self):
         self.popular = PopularRecommender()
         self.collaborative = ItemCFRecommender()
@@ -40,6 +41,9 @@ class RecommendationService:
         score_map = defaultdict(float)
 
         def accumulate_scores(score_dict, weight):
+            """
+            将 score_dict 中的得分累加到 score_map 中，权重为 weight
+            """
             if not score_dict:
                 return
             # score_dict should be a dict: dish_id -> score
@@ -54,6 +58,9 @@ class RecommendationService:
         return [dish_id for dish_id, _ in sorted_dishes[:limit]]
 
     def dish_ids_to_names(self, dish_ids):
+        """
+        根据 dish_ids 列表获取菜品名称列表。
+        """
         from app.services.dish_service import get_dish_by_id
         result = []
         for dish_id in dish_ids:
@@ -114,7 +121,8 @@ class RecommendationService:
 
         elif strategy == 'item_cf_time':
             logger.info("策略指定为 item_cf_time，使用时间衰减协同过滤推荐。")
-            score_dict = self.collaborative.recommend_by_item_similarity_with_time_decay(user_id, limit)
+            score_dict = self.collaborative.recommend_by_item_similarity_with_time_decay(user_id,
+                                                                                         limit)
             logger.debug(f"[item_cf_time] 推荐得分字典：{score_dict}")
             dish_ids = list(score_dict.keys())
             return self.dish_ids_to_names(dish_ids)

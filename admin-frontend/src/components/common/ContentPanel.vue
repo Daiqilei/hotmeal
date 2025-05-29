@@ -51,7 +51,7 @@
 
   const props = defineProps({
     fetchData: Function, // (query) => Promise<{ list:[], total: number }>
-    initQuery: Object,
+    initQuery: Object
   })
 
   const emits = defineEmits(['update:selected'])
@@ -76,7 +76,10 @@
      'total before set:',
      res?.total,
    )*/
-    dataList.value = res?.list || []
+    dataList.value = (res?.list || []).slice().sort((a, b) => {
+      const getKey = (item) => ('_sortKey' in item ? item._sortKey : item[Object.keys(item || {})[0]])
+      return (getKey(a) ?? 0) - (getKey(b) ?? 0)
+    })
     total.value = res?.total || 0
     //console.log('[ContentPanel] after set, dataList:', dataList.value, 'total:', total.value)
   }
@@ -94,7 +97,7 @@
 
   onMounted(handleSearch)
   defineExpose({
-    fetchData: handleSearch,
+    fetchData: handleSearch
   })
 </script>
 

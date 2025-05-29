@@ -5,14 +5,11 @@
 @Desc       : 用餐区域 (Dining Area / Room) 服务层。
               处理用餐区域的创建、查询、分配、释放、更新和删除逻辑。
               采用 "失败抛异常，成功返数据"模式。
-
-
 """
 
 import logging
 from typing import List, Dict, Any, Optional
-# 移除未使用的 http 模块导入
-# from http import HTTPStatus
+
 
 from sqlalchemy.exc import IntegrityError, SQLAlchemyError
 

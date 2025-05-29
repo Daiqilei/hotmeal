@@ -1,4 +1,4 @@
-    # Author: ChiLeiTai
+# Author: ChiLeiTai
 
 # Python 缓存和编译文件
 __pycache__/
@@ -60,3 +60,4 @@ migrations/
 
 # pytest 缓存
 .pytest_cache/
+/tests/

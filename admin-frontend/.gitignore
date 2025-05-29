@@ -25,3 +25,15 @@ yarn-error.log*
 
 # Optional: mocks data or temporary test files
 mock-data/
+
+# 构建输出目录（如 Vite 构建产物）
+dist/
+
+# 本地图标文件（如 logo.ico 可选忽略）
+*.ico
+
+# TypeScript 构建缓存（若使用 TypeScript）
+*.tsbuildinfo
+
+# 可能的浏览器缓存或调试工具
+.cache/

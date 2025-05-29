@@ -15,7 +15,7 @@ export default [
     label: '首页',
     // icon: HomeFilled,
     icon: 'HomeFilled', // 使用字符串或导入的组件
-    path: '/admin/dashboard',
+    path: '/admin/dashboard'
   },
   {
     // 用户管理 (Top Level SubMenu)
@@ -27,15 +27,15 @@ export default [
       {
         // 客户管理 (Child Item)
         title: '客户管理', // el-menu-item 的文本 (使用 title)
-        path: '/admin/user', // 指向客户列表/管理页面 (基于你的 views/admin/user/index.vue)
+        path: '/admin/user' // 指向客户列表/管理页面 (基于你的 views/admin/user/index.vue)
       },
       {
         // 员工管理 (Child Item)
         title: '员工管理',
-        path: '/admin/staff', // TODO: 确认员工管理的实际路由路径
+        path: '/admin/staff' // TODO: 确认员工管理的实际路由路径
         // 如果没有单独的员工管理页面，可能需要调整或移除此项
-      },
-    ],
+      }
+    ]
   },
   {
     // 菜品管理 (Top Level SubMenu)
@@ -48,34 +48,39 @@ export default [
         // 菜品列表/明细管理 (Child Item)
         title: '菜品列表', // el-menu-item 的文本 (使用 title)
         // 你原来写的是 '全部菜品', path: '/admin/dish'
-        path: '/admin/dish', // 指向菜品列表页面 (基于你的 views/admin/dish/DishList.vue)
+        path: '/admin/dish' // 指向菜品列表页面 (基于你的 views/admin/dish/DishList.vue)
       },
       {
         // 分类管理 (Child Item)
         title: '分类管理', // el-menu-item 的文本 (使用 title)
-        path: '/admin/category', // 指向分类管理页面 (基于你的 views/admin/category/CategoryPanel.vue)
+        path: '/admin/category' // 指向分类管理页面 (基于你的 views/admin/category/CategoryPanel.vue)
       },
-    ],
+      {
+        // 标签管理 (Child Item)
+        title: '标签管理',
+        path: '/admin/tag' // 对应 views/admin/tag/index.vue 页面
+      }
+    ]
   },
   {
     // 餐区管理 (Top Level Item)
     label: '餐区管理',
     // icon: OfficeBuilding,
     icon: 'OfficeBuilding', // 替换 'diningArea'
-    path: '/admin/dining-area', // 路径更正为匹配 views 文件夹
+    path: '/admin/dining-area' // 路径更正为匹配 views 文件夹
   },
   {
     // 订单管理 (Top Level Item)
     label: '订单管理',
     // icon: List,
     icon: 'List',
-    path: '/admin/orders',
+    path: '/admin/orders'
   },
   {
     // 数据看板 (Top Level Item)
     label: '数据看板',
     // icon: PieChart,
     icon: 'Chart',
-    path: '/admin/charts',
-  },
+    path: '/admin/charts'
+  }
 ]

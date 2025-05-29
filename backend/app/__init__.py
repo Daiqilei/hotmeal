@@ -68,6 +68,7 @@ def register_namespaces(api_instance: Api):  # 接收 Api 实例作为参数
     from app.routes.user_routes import user_ns
     from app.routes.auth_routes import auth_ns
     from app.routes.staff_routes import staff_ns
+    from app.routes.tag_routes import tag_ns
 
     # 添加 Namespace 到 Api 实例
     api_instance.add_namespace(health_ns, path='/health')
@@ -81,6 +82,7 @@ def register_namespaces(api_instance: Api):  # 接收 Api 实例作为参数
     api_instance.add_namespace(recommend_ns, path='/recommendations')
     api_instance.add_namespace(auth_ns, path='/auth')
     api_instance.add_namespace(staff_ns, path='/staff')
+    api_instance.add_namespace(tag_ns, path='/tags')
     logger.info("所有 API 命名空间注册完成。")
 
 

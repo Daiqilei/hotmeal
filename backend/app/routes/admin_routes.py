@@ -4,11 +4,11 @@
 @Date       : 2025-03-01 和版本
 @Desc       : 处理管理员专属功能的 API 端点。 # 修正描述
 
-@Version    : 1.1.0
+@Version    : 1.0.0
 @Copyright  : Copyright © 2025. All rights reserved.
 """
 
-import logging  # 添加日志
+import logging
 from http import HTTPStatus
 
 from flask import request

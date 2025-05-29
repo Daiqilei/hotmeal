@@ -80,7 +80,6 @@ class CategoryList(Resource):
     @require_roles(["admin"])  # 仅管理员可创建
     @log_request
     @timing
-    # 移除了 @validate_json
     def post(self):
         """创建新分类 (仅管理员)"""
         data = request.get_json()

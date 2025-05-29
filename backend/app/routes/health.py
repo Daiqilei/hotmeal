@@ -3,9 +3,8 @@
 @File       : health.py
 @Date       : 2025-03-01
 @Desc       : Health check related APIs
-
-
 """
+
 from flask_restx import Namespace, Resource
 
 api = Namespace('health', description='Health check related APIs')

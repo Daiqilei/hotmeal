@@ -49,6 +49,11 @@ export default [
         component: () => import('@/views/admin/category/CategoryPanel.vue'),
       },
       {
+        path: 'tag',
+        name: 'AdminTag',
+        component: () => import('@/views/admin/tag/TagPanel.vue'),
+      },
+      {
         path: 'dining-area',
         name: 'AdminDiningArea',
         component: () => import('@/views/admin/dining-area/DiningAreaPanel.vue'),
