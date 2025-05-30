@@ -2,12 +2,12 @@
 """
 @File       : item_cf.py
 @Date       : 2025-03-01 (Refactored: 2025-03-01)
-@Description:
+@Description: 基于菜品相似度的协同过滤推荐算法
 @Project    : HotMeal - Personalized Meal Ordering System Based on Recommendation Algorithms
-
 """
 
 import logging
+
 import numpy as np
 from sqlalchemy import text
 

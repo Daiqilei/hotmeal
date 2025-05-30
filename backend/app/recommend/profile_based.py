@@ -5,7 +5,7 @@
 @Description: 基于用户画像（如偏好菜系）的推荐算法。
               采用混合策略：优先用户显式设置，否则根据历史订单推断。
 @Project    : HotMeal - Personalized Meal Ordering System Based on Recommendation Algorithms
-@Version    : 1.2.2 # 版本更新，再次修复类型和 PEP8 警告
+@Version    : 1.0.0
 @Copyright  : Copyright © 2025. All rights reserved.
 """
 import logging
