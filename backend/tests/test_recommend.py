@@ -6,6 +6,8 @@
 """
 from app.services.recommend_service import RecommendationService
 from flask_jwt_extended import create_access_token
+
+
 # ==============================
 # ✅ 服务层测试：RecommendationService（推荐服务逻辑）
 # ==============================
@@ -33,6 +35,8 @@ def test_weighted_recommendation_with_fixture_data(mock_user_with_orders, mock_r
     print("推荐结果菜品信息列表：")
     for dish in result:
         print(f"- {dish['dish_id']} | {dish.get('name')} | ¥{dish.get('price')}")
+
+
 def test_popular_recommendation(mock_user_with_orders, mock_recommend_dishes):
     """
     测试服务层：热门推荐策略 popular
@@ -53,6 +57,8 @@ def test_popular_recommendation(mock_user_with_orders, mock_recommend_dishes):
     print("【popular】推荐结果：")
     for dish in result:
         print(f"- {dish['dish_id']} | {dish.get('name')} | ¥{dish.get('price')}")
+
+
 def test_item_cf_recommendation(mock_user_with_orders, mock_recommend_dishes):
     """
     测试服务层：协同过滤推荐策略 item_cf
@@ -73,6 +79,8 @@ def test_item_cf_recommendation(mock_user_with_orders, mock_recommend_dishes):
     print("【item_cf】推荐结果：")
     for dish in result:
         print(f"- {dish['dish_id']} | {dish.get('name')} | ¥{dish.get('price')}")
+
+
 def test_profile_based_recommendation_with_profile_user(mock_user_with_profile,
                                                         mock_recommend_dishes):
     """
@@ -94,6 +102,8 @@ def test_profile_based_recommendation_with_profile_user(mock_user_with_profile,
     print("【profile_based】推荐结果：")
     for dish in result:
         print(f"- {dish['dish_id']} | {dish.get('name')} | ¥{dish.get('price')}")
+
+
 # ==============================
 # ✅ 接口层测试：/api/v1/recommend 推荐接口
 # ==============================
@@ -117,6 +127,8 @@ def test_recommend_route_popular(user_token, client, mock_recommend_dishes):
     # data = response.json
     # assert data["status"] == "success"
     # assert isinstance(data["data"], list)
+
+
 def test_recommend_route_item_cf(client, mock_user_with_orders):
     """
     测试接口：/api/v1/recommend?strategy=item_cf
@@ -142,6 +154,7 @@ def test_recommend_route_item_cf(client, mock_user_with_orders):
     # assert data["status"] == "success"
     # assert isinstance(data["data"], list)
 
+
 def test_recommend_route_profile_based(client, mock_user_with_profile, mock_recommend_dishes):
     """
     测试接口：/api/v1/recommend?strategy=profile_based
@@ -166,6 +179,8 @@ def test_recommend_route_profile_based(client, mock_user_with_profile, mock_reco
     # data = response.json
     # assert data["status"] == "success"
     # assert isinstance(data["data"], list)
+
+
 def test_recommend_route_default_strategy(profile_user_token, client):
     """
     测试接口：/api/v1/recommend 不传 strategy 参数
